@@ -106,7 +106,7 @@ namespace dfplayermini {
     //% blockId="dfplayermini_press" block="press button:%myPlayType"
     //% block.loc.de="Drücke Taste:%myPlayType"
     //% weight=99 blockGap=20
-    //% group="Control"
+    //% group="Steuerung"
     export function press(myPlayType: playType): void {
         innerCall(myPlayType, 0x00, 0x00)
     }
@@ -114,7 +114,7 @@ namespace dfplayermini {
     //% blockId="dfplayermini_playFile" block="play DFPlayer Mini on the file number:%fileNumber|repeat:%setRepeat"
     //% block.loc.de="Spiele DFPlayer Mini auf der Dateinummer:%fileNumber|wiederholen:%setRepeat"
     //% weight=98 blockGap=20 fileNumber.min=1 fileNumber.max=255
-    //% group="Playback"
+    //% group="Wiedergabe"
     export function playFile(fileNumber: number, setRepeat: isRepeat): void {
         innerCall(0x03, 0x00, fileNumber)
         press(0x0D)
@@ -124,7 +124,7 @@ namespace dfplayermini {
     //% blockId="dfplayermini_playFileInFolder" block="play DFPlayer Mini in the folder number:%folderNumber|file number:%fileNumber|repeat:%setRepeat"
     //% block.loc.de="Spiele DFPlayer Mini in der Ordnernummer:%folderNumber|Dateinummer:%fileNumber|wiederholen:%setRepeat"
     //% weight=97 blockGap=20 folderNumber.min=1 folderNumber.max=99 fileNumber.min=1 fileNumber.max=255
-    //% group="Playback"
+    //% group="Wiedergabe"
     export function playFileInFolder(folderNumber: number, fileNumber: number, setRepeat: isRepeat): void {
         innerCall(0x0F, folderNumber, fileNumber)
         if (setRepeat == 1) press(0x19)
@@ -133,7 +133,7 @@ namespace dfplayermini {
     //% blockId="dfplayermini_playLoopAllFiles" block="loop play all the files in the SD card"
     //% block.loc.de="Alle Dateien auf der SD-Karte in Schleife abspielen"
     //% weight=96 blockGap=20
-    //% group="Playback"
+    //% group="Wiedergabe"
     export function playLoopAllFiles(): void {
         innerCall(0x11, 0x00, 0x01)
     }
@@ -141,7 +141,7 @@ namespace dfplayermini {
     //% blockId="dfplayermini_playLoopFolder" block="loop play all the files in the folder:%folderNum"
     //% block.loc.de="Alle Dateien im Ordner in Schleife abspielen:%folderNum"
     //% weight=95 blockGap=20 folderNum.min=1 folderNum.max=99
-    //% group="Playback"
+    //% group="Wiedergabe"
     export function playLoopFolder(folderNum: number): void {
         innerCall(0x17, 0x00, folderNum)
     }
@@ -149,7 +149,7 @@ namespace dfplayermini {
     //% blockId="dfplayermini_setVolume" block="set volume(0~30):%volume"
     //% block.loc.de="Lautstärke einstellen(0~30):%volume"
     //% weight=94 blockGap=20 volume.min=0 volume.max=30
-    //% group="Settings"
+    //% group="Einstellungen"
     export function setVolume(volume: number): void {
         innerCall(0x06, 0x00, volume | 0)
     }
@@ -157,7 +157,7 @@ namespace dfplayermini {
     //% blockId="dfplayermini_setEQ" block="set EQ:%eq"
     //% block.loc.de="EQ einstellen:%eq"
     //% weight=93 blockGap=20
-    //% group="Settings"
+    //% group="Einstellungen"
     export function setEQ(eq: EQ): void {
         innerCall(0x07, 0x00, eq)
     }
