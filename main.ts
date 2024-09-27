@@ -146,9 +146,9 @@ namespace dfplayermini {
         innerCall(0x17, 0x00, folderNum)
     }
 
-    //% blockId="dfplayermini_setVolume" block="set volume(0~30):%volume"
-    //% block.loc.de="Lautstärke einstellen(0~30):%volume"
-    //% weight=94 blockGap=20 volume.min=0 volume.max=30
+    //% blockId="dfplayermini_setVolume" block="set volume(0~25):%volume"
+    //% block.loc.de="Lautstärke einstellen(0~25):%volume"
+    //% weight=94 blockGap=20 volume.min=0 volume.max=25
     //% group="Einstellungen"
     export function setVolume(volume: number): void {
         innerCall(0x06, 0x00, volume | 0)
